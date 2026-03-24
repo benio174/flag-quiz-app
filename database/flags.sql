@@ -1,0 +1,386 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost:3306
+-- Generation Time: Mar 24, 2026 at 09:19 PM
+-- Wersja serwera: 10.4.32-MariaDB
+-- Wersja PHP: 8.2.12
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `flags`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `countries`
+--
+
+CREATE TABLE `countries` (
+  `id` bigint(20) NOT NULL,
+  `flag_url` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `name_en` varchar(255) NOT NULL,
+  `continent` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `countries`
+--
+
+INSERT INTO `countries` (`id`, `flag_url`, `name`, `name_en`, `continent`) VALUES
+(1, 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Flag_of_Poland_%28normative%29.svg/250px-Flag_of_Poland_%28normative%29.svg.png', 'Polska', 'Poland', 'Europa'),
+(2, 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Flag_of_Albania.svg/1280px-Flag_of_Albania.svg.png', 'Albania', 'Albania', 'Europa'),
+(3, 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Flag_of_Andorra.svg/1280px-Flag_of_Andorra.svg.png', 'Andora', 'Andorra', 'Europa'),
+(4, 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Flag_of_Montenegro.svg/1920px-Flag_of_Montenegro.svg.png', 'Czarnogóra', 'Montenegro', 'Europa'),
+(5, 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Flag_of_Austria.svg/1280px-Flag_of_Austria.svg.png', 'Austria', 'Austria', 'Europa'),
+(6, 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Flag_of_Belarus.svg/1920px-Flag_of_Belarus.svg.png', 'Białoruś', 'Belarus', 'Europa'),
+(7, 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Flag_of_Belgium.svg/960px-Flag_of_Belgium.svg.png', 'Belgia', 'Belgium', 'Europa'),
+(8, 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Flag_of_Bosnia_and_Herzegovina.svg/1920px-Flag_of_Bosnia_and_Herzegovina.svg.png', 'Bośnia i Hercegowina', 'Bosnia and Herzegovina', 'Europa'),
+(9, 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Bulgaria.svg/1920px-Flag_of_Bulgaria.svg.png', 'Bułgaria', 'Bulgaria', 'Europa'),
+(10, 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Flag_of_Croatia.svg/1920px-Flag_of_Croatia.svg.png', 'Chorwacja', 'Croatia', 'Europa'),
+(11, 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Flag_of_Cyprus.svg/1280px-Flag_of_Cyprus.svg.png', 'Cypr', 'Cyprus', 'Europa'),
+(12, 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Flag_of_the_Czech_Republic.svg/1280px-Flag_of_the_Czech_Republic.svg.png', 'Czechy', 'Czech Republic, Czechia', 'Europa'),
+(13, 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Flag_of_Denmark.svg/1280px-Flag_of_Denmark.svg.png', 'Dania', 'Denmark', 'Europa'),
+(14, 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Flag_of_Estonia.svg/1920px-Flag_of_Estonia.svg.png', 'Estonia', 'Estonia', 'Europa'),
+(15, 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Flag_of_Finland.svg/1920px-Flag_of_Finland.svg.png', 'Finlandia', 'Finland', 'Europa'),
+(16, 'https://upload.wikimedia.org/wikipedia/en/thumb/c/c3/Flag_of_France.svg/1280px-Flag_of_France.svg.png', 'Francja', 'France', 'Europa'),
+(17, 'https://upload.wikimedia.org/wikipedia/en/thumb/b/ba/Flag_of_Germany.svg/1920px-Flag_of_Germany.svg.png', 'Niemcy', 'Germany', 'Europa'),
+(18, 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Greece.svg/1280px-Flag_of_Greece.svg.png', 'Grecja', 'Greece', 'Europa'),
+(19, 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Flag_of_Hungary.svg/1920px-Flag_of_Hungary.svg.png', 'Węgry', 'Hungary', 'Europa'),
+(20, 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Iceland.svg/1280px-Flag_of_Iceland.svg.png', 'Islandia', 'Iceland', 'Europa'),
+(21, 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Flag_of_Ireland.svg/1920px-Flag_of_Ireland.svg.png', 'Irlandia', 'Ireland', 'Europa'),
+(22, 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Flag_of_Latvia.svg/1920px-Flag_of_Latvia.svg.png', 'Łotwa', 'Latvia', 'Europa'),
+(23, 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Flag_of_Liechtenstein.svg/1920px-Flag_of_Liechtenstein.svg.png', 'Liechtenstein', 'Liechtenstein', 'Europa'),
+(24, 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Flag_of_Lithuania.svg/1920px-Flag_of_Lithuania.svg.png', 'Litwa', 'Lithuania', 'Europa'),
+(25, 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Flag_of_Luxembourg.svg/1920px-Flag_of_Luxembourg.svg.png', 'Luksemburg', 'Luxembourg', 'Europa'),
+(26, 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Flag_of_Malta.svg/1280px-Flag_of_Malta.svg.png', 'Malta', 'Malta', 'Europa'),
+(27, 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Flag_of_Moldova.svg/1920px-Flag_of_Moldova.svg.png', 'Mołdawia', 'Moldova', 'Europa'),
+(28, 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Flag_of_Monaco.svg/1280px-Flag_of_Monaco.svg.png', 'Monako', 'Monaco', 'Europa'),
+(29, 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Flag_of_the_Netherlands.svg/1280px-Flag_of_the_Netherlands.svg.png', 'Holandia', 'Netherlands', 'Europa'),
+(30, 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Flag_of_North_Macedonia.svg/1920px-Flag_of_North_Macedonia.svg.png', 'Macedonia Północna', 'North Macedonia', 'Europa'),
+(31, 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Flag_of_Norway.svg/1280px-Flag_of_Norway.svg.png', 'Norwegia', 'Norway', 'Europa'),
+(32, 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Flag_of_Portugal_%28official%29.svg/1280px-Flag_of_Portugal_%28official%29.svg.png', 'Portugalia', 'Portugal', 'Europa'),
+(33, 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Flag_of_Romania.svg/1280px-Flag_of_Romania.svg.png', 'Rumunia', 'Romania', 'Europa'),
+(34, 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Flag_of_San_Marino.svg/1280px-Flag_of_San_Marino.svg.png', 'San Marino', 'San Marino', 'Europa'),
+(35, 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Flag_of_Serbia.svg/1280px-Flag_of_Serbia.svg.png', 'Serbia', 'Serbia', 'Europa'),
+(36, 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Flag_of_Slovakia.svg/1280px-Flag_of_Slovakia.svg.png', 'Słowacja', 'Slovakia', 'Europa'),
+(37, 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Flag_of_Slovenia.svg/1920px-Flag_of_Slovenia.svg.png', 'Słowenia', 'Slovenia', 'Europa'),
+(38, 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Bandera_de_Espa%C3%B1a.svg/1280px-Bandera_de_Espa%C3%B1a.svg.png', 'Hiszpania', 'Spain', 'Europa'),
+(39, 'https://upload.wikimedia.org/wikipedia/en/thumb/4/4c/Flag_of_Sweden.svg/1920px-Flag_of_Sweden.svg.png', 'Szwecja', 'Sweden', 'Europa'),
+(40, 'https://content.app-sources.com/s/39330979433008693/uploads/store/Switzerland-flag-1-5957046.jpg?format=webp', 'Szwajcaria', 'Switzerland', 'Europa'),
+(41, 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Flag_of_Ukraine.svg/1280px-Flag_of_Ukraine.svg.png', 'Ukraina', 'Ukraine', 'Europa'),
+(42, 'https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Flag_of_the_United_Kingdom.svg/1920px-Flag_of_the_United_Kingdom.svg.png', 'Wielka Brytania', 'Great Britain', 'Europa'),
+(43, 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Flag_of_Vatican_City_%282023%E2%80%93present%29.svg/960px-Flag_of_Vatican_City_%282023%E2%80%93present%29.svg.png', 'Watykan', 'Vatican, Vatican City', 'Europa'),
+(44, 'https://upload.wikimedia.org/wikipedia/en/thumb/b/be/Flag_of_England.svg/1920px-Flag_of_England.svg.png', 'Anglia', 'England', 'Europa'),
+(45, 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Flag_of_Northern_Ireland_%281953%E2%80%931972%29.svg/1920px-Flag_of_Northern_Ireland_%281953%E2%80%931972%29.svg.png', 'Irlandia Północna', 'Northern Ireland', 'Europa'),
+(46, 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Flag_of_Scotland.svg/1920px-Flag_of_Scotland.svg.png', 'Szkocja', 'Scotland', 'Europa'),
+(47, 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Flag_of_Wales.svg/1920px-Flag_of_Wales.svg.png', 'Walia', 'Wales', 'Europa'),
+(48, 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Flag_of_Italy.svg/1280px-Flag_of_Italy.svg.png', 'Włochy', 'Italy', 'Europa'),
+(49, 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Flag_of_Kosovo.svg/1280px-Flag_of_Kosovo.svg.png', 'Kosowo', 'Kosovo', 'Europa'),
+(50, 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_the_Taliban.svg/1920px-Flag_of_the_Taliban.svg.png', 'Afganistan', 'Afghanistan', 'Azja'),
+(51, 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Flag_of_Saudi_Arabia.svg/1280px-Flag_of_Saudi_Arabia.svg.png', 'Arabia Saudyjska', 'Saudi Arabia', 'Azja'),
+(52, 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Flag_of_Armenia.svg/1920px-Flag_of_Armenia.svg.png', 'Armenia', 'Armenia', 'Azja'),
+(53, 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Flag_of_Azerbaijan.svg/1920px-Flag_of_Azerbaijan.svg.png', 'Azerbejdżan', 'Azerbaijan', 'Azja'),
+(54, 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Flag_of_Bahrain.svg/1920px-Flag_of_Bahrain.svg.png', 'Bahrajn', 'Bahrain', 'Azja'),
+(55, 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Flag_of_Bangladesh.svg/1920px-Flag_of_Bangladesh.svg.png', 'Bangladesz', 'Bangladesh', 'Azja'),
+(56, 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Flag_of_Bhutan.svg/1280px-Flag_of_Bhutan.svg.png', 'Bhutan', 'Bhutan', 'Azja'),
+(57, 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Flag_of_Brunei.svg/1920px-Flag_of_Brunei.svg.png', 'Brunei', 'Brunei', 'Azja'),
+(58, 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Flag_of_the_People%27s_Republic_of_China.svg/1280px-Flag_of_the_People%27s_Republic_of_China.svg.png', 'Chiny', 'China', 'Azja'),
+(59, 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Flag_of_the_Philippines.svg/1920px-Flag_of_the_Philippines.svg.png', 'Filipiny', 'Philippines', 'Azja'),
+(60, 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Flag_of_Georgia.svg/1280px-Flag_of_Georgia.svg.png', 'Gruzja', 'Georgia', 'Azja'),
+(61, 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Flag_of_India.svg/1280px-Flag_of_India.svg.png', 'Indie', 'India', 'Azja'),
+(62, 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Flag_of_Indonesia.svg/1280px-Flag_of_Indonesia.svg.png', 'Indonezja', 'Indonesia', 'Azja'),
+(63, 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Flag_of_Iraq.svg/1280px-Flag_of_Iraq.svg.png', 'Irak', 'Iraq', 'Azja'),
+(64, 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Flag_of_Iran.svg/1920px-Flag_of_Iran.svg.png', 'Iran', 'Iran', 'Azja'),
+(65, 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Flag_of_Israel.svg/1280px-Flag_of_Israel.svg.png', 'Izrael', 'Israel', 'Azja'),
+(66, 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Flag_of_Japan.svg/1280px-Flag_of_Japan.svg.png', 'Japonia', 'Japan', 'Azja'),
+(67, 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Flag_of_Yemen.svg/1280px-Flag_of_Yemen.svg.png', 'Jemen', 'Yemen', 'Azja'),
+(68, 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Flag_of_Jordan.svg/1920px-Flag_of_Jordan.svg.png', 'Jordania', 'Jordan', 'Azja'),
+(69, 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Flag_of_Cambodia.svg/1920px-Flag_of_Cambodia.svg.png', 'Kambodża', 'Cambodia', 'Azja'),
+(70, 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Flag_of_Qatar.svg/1920px-Flag_of_Qatar.svg.png', 'Katar', 'Qatar', 'Azja'),
+(71, 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Flag_of_Kazakhstan.svg/1920px-Flag_of_Kazakhstan.svg.png', 'Kazachstan', 'Kazakhstan', 'Azja'),
+(72, 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Flag_of_Kyrgyzstan.svg/1920px-Flag_of_Kyrgyzstan.svg.png', 'Kirgistan', 'Kyrgyzstan', 'Azja'),
+(73, 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Flag_of_South_Korea.svg/1280px-Flag_of_South_Korea.svg.png', 'Korea Południowa', 'South Korea', 'Azja'),
+(74, 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Flag_of_North_Korea.svg/1920px-Flag_of_North_Korea.svg.png', 'Korea Północna', 'North Korea', 'Azja'),
+(75, 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Flag_of_Kuwait.svg/1920px-Flag_of_Kuwait.svg.png', 'Kuwejt', 'Kuwait', 'Azja'),
+(76, 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Flag_of_Laos.svg/1280px-Flag_of_Laos.svg.png', 'Laos', 'Laos', 'Azja'),
+(77, 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Flag_of_Lebanon.svg/1280px-Flag_of_Lebanon.svg.png', 'Liban', 'Lebanon', 'Azja'),
+(78, 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Flag_of_Maldives.svg/1280px-Flag_of_Maldives.svg.png', 'Malediwy', 'Maldives', 'Azja'),
+(79, 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Flag_of_Malaysia.svg/1920px-Flag_of_Malaysia.svg.png', 'Malezja', 'Malaysia', 'Azja'),
+(80, 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Flag_of_Myanmar.svg/1280px-Flag_of_Myanmar.svg.png', 'Mjanma, Birma', 'Myanmar, Burma', 'Azja'),
+(81, 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Flag_of_Mongolia.svg/1920px-Flag_of_Mongolia.svg.png', 'Mongolia', 'Mongolia', 'Azja'),
+(82, 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Flag_of_Nepal.svg/960px-Flag_of_Nepal.svg.png', 'Nepal', 'Nepal', 'Azja'),
+(83, 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Flag_of_Oman.svg/1920px-Flag_of_Oman.svg.png', 'Oman', 'Oman', 'Azja'),
+(84, 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Flag_of_Pakistan.svg/1280px-Flag_of_Pakistan.svg.png', 'Pakistan', 'Pakistan', 'Azja'),
+(85, 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Flag_of_Russia.svg/1280px-Flag_of_Russia.svg.png', 'Rosja', 'Russia', 'Azja'),
+(86, 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Flag_of_Singapore.svg/1280px-Flag_of_Singapore.svg.png', 'Singapur', 'Singapore', 'Azja'),
+(87, 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Flag_of_Sri_Lanka.svg/1920px-Flag_of_Sri_Lanka.svg.png', 'Sri Lanka', 'Sri Lanka', 'Azja'),
+(88, 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Flag_of_Syria_%282025-%29.svg/1280px-Flag_of_Syria_%282025-%29.svg.png', 'Syria', 'Syria', 'Azja'),
+(89, 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Flag_of_Tajikistan.svg/1920px-Flag_of_Tajikistan.svg.png', 'Tadżykistan', 'Tajikistan', 'Azja'),
+(90, 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Flag_of_Thailand.svg/1280px-Flag_of_Thailand.svg.png', 'Tajlandia', 'Thailand', 'Azja'),
+(91, 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Flag_of_East_Timor.svg/1920px-Flag_of_East_Timor.svg.png', 'Timor Wschodni', 'East Timor', 'Azja'),
+(92, 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Flag_of_Turkey.svg/1280px-Flag_of_Turkey.svg.png', 'Turcja', 'Turkey', 'Azja'),
+(93, 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Flag_of_Turkmenistan.svg/1280px-Flag_of_Turkmenistan.svg.png', 'Turkmenistan', 'Turkmenistan', 'Azja'),
+(94, 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Flag_of_Uzbekistan.svg/1920px-Flag_of_Uzbekistan.svg.png', 'Uzbekistan', 'Uzbekistan', 'Azja'),
+(95, 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Vietnam.svg/1280px-Flag_of_Vietnam.svg.png', 'Wietnam', 'Vietnam', 'Azja'),
+(96, 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Flag_of_the_United_Arab_Emirates.svg/1920px-Flag_of_the_United_Arab_Emirates.svg.png', 'Zjednoczone Emiraty Arabskie, ZEA', 'United Arab Emirates, UAE', 'Azja'),
+(97, 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Flag_of_Palestine.svg/1920px-Flag_of_Palestine.svg.png', 'Palestyna', 'Palestine', 'Azja'),
+(98, 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Flag_of_the_Republic_of_China.svg/1280px-Flag_of_the_Republic_of_China.svg.png', 'Tajwan', 'Taiwan', 'Azja'),
+(99, 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Flag_of_Antigua_and_Barbuda.svg/1280px-Flag_of_Antigua_and_Barbuda.svg.png', 'Antigua i Barbuda', 'Antigua and Barbuda', 'Ameryki'),
+(100, 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Flag_of_the_Bahamas.svg/1920px-Flag_of_the_Bahamas.svg.png', 'Bahamy', 'Bahamas', 'Ameryki'),
+(101, 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Flag_of_Barbados.svg/1280px-Flag_of_Barbados.svg.png', 'Barbados', 'Barbados', 'Ameryki'),
+(102, 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Flag_of_Belize.svg/1920px-Flag_of_Belize.svg.png', 'Belize', 'Belize', 'Ameryki'),
+(103, 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Flag_of_Dominica.svg/1920px-Flag_of_Dominica.svg.png', 'Dominika', 'Dominica', 'Ameryki'),
+(104, 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Flag_of_the_Dominican_Republic.svg/1280px-Flag_of_the_Dominican_Republic.svg.png', 'Dominikana, Republika Dominikańska', 'Dominican Republic', 'Ameryki'),
+(105, 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Flag_of_Grenada.svg/1920px-Flag_of_Grenada.svg.png', 'Grenada', 'Grenada', 'Ameryki'),
+(106, 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Flag_of_Guatemala.svg/1920px-Flag_of_Guatemala.svg.png', 'Gwatemala', 'Guatemala', 'Ameryki'),
+(107, 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Flag_of_Haiti.svg/1920px-Flag_of_Haiti.svg.png', 'Haiti', 'Haiti', 'Ameryki'),
+(108, 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Flag_of_Honduras_%281949%E2%80%932022%2C_2026%E2%80%93present%29.svg/1920px-Flag_of_Honduras_%281949%E2%80%932022%2C_2026%E2%80%93present%29.svg.png', 'Honduras', 'Honduras', 'Ameryki'),
+(109, 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Flag_of_Jamaica.svg/1920px-Flag_of_Jamaica.svg.png', 'Jamajka', 'Jamaica', 'Ameryki'),
+(110, 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Flag_of_Canada_%28Pantone%29.svg/1920px-Flag_of_Canada_%28Pantone%29.svg.png', 'Kanada', 'Canada', 'Ameryki'),
+(111, 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Flag_of_Costa_Rica.svg/1920px-Flag_of_Costa_Rica.svg.png', 'Kostaryka', 'Costa Rica', 'Ameryki'),
+(112, 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Flag_of_Cuba.svg/1920px-Flag_of_Cuba.svg.png', 'Kuba', 'Cuba', 'Ameryki'),
+(113, 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Flag_of_Mexico.svg/1920px-Flag_of_Mexico.svg.png', 'Meksyk', 'Mexico', 'Ameryki'),
+(114, 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Flag_of_Nicaragua.svg/1920px-Flag_of_Nicaragua.svg.png', 'Nikaragua', 'Nicaragua', 'Ameryki'),
+(115, 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Flag_of_Panama.svg/1280px-Flag_of_Panama.svg.png', 'Panama', 'Panama', 'Ameryki'),
+(116, 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flag_of_Saint_Kitts_and_Nevis.svg/1280px-Flag_of_Saint_Kitts_and_Nevis.svg.png', 'Saint Kitts i Nevis', 'Saint Kitts and Nevis', 'Ameryki'),
+(117, 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Flag_of_Saint_Lucia.svg/1920px-Flag_of_Saint_Lucia.svg.png', 'Saint Lucia', 'Saint Lucia', 'Ameryki'),
+(118, 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Flag_of_Saint_Vincent_and_the_Grenadines.svg/1280px-Flag_of_Saint_Vincent_and_the_Grenadines.svg.png', 'Saint Vincent i Grenadyny', 'Saint Vincent and Grenadines', 'Ameryki'),
+(119, 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Flag_of_El_Salvador.svg/1920px-Flag_of_El_Salvador.svg.png', 'Salwador', 'Salvador', 'Ameryki'),
+(120, 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/1920px-Flag_of_the_United_States.svg.png', 'Stany Zjednoczone, USA', 'United States, USA', 'Ameryki'),
+(121, 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Flag_of_Greenland.svg/1280px-Flag_of_Greenland.svg.png', 'Grenlandia', 'Greenland', 'Ameryki'),
+(122, 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Flag-of-Martinique.svg/120px-Flag-of-Martinique.svg.png', 'Martynika', 'Martinique', 'Ameryki'),
+(123, 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Flag_of_Saba.svg/1280px-Flag_of_Saba.svg.png', 'Saba', 'Saba', 'Ameryki'),
+(124, 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Flag_of_Sint_Eustatius.svg/1280px-Flag_of_Sint_Eustatius.svg.png', 'Sint Eustatius, Statia', 'Sint Eustatius', 'Ameryki'),
+(125, 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Flag_of_Saint-Pierre_and_Miquelon.svg/1280px-Flag_of_Saint-Pierre_and_Miquelon.svg.png', 'Saint Pierre i Miquelon', 'Saint Pierre and Miquelon', 'Ameryki'),
+(126, 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Flag_of_Puerto_Rico.svg/1280px-Flag_of_Puerto_Rico.svg.png', 'Portoryko', 'Puerto Rico', 'Ameryki'),
+(127, 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Flag_of_the_Cayman_Islands.svg/1920px-Flag_of_the_Cayman_Islands.svg.png', 'Kajmany', 'Cayman Islands', 'Ameryki'),
+(128, 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/1920px-Flag_of_Argentina.svg.png', 'Argentyna', 'Argentina', 'Ameryki'),
+(129, 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Flag_of_Brazil.svg/1280px-Flag_of_Brazil.svg.png', 'Brazylia', 'Brazil', 'Ameryki'),
+(130, 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Flag_of_Chile.svg/1280px-Flag_of_Chile.svg.png', 'Chile', 'Chile', 'Ameryki'),
+(131, 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Flag_of_Ecuador.svg/1280px-Flag_of_Ecuador.svg.png', 'Ekwador', 'Ecuador', 'Ameryki'),
+(132, 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Flag_of_Guyana.svg/1920px-Flag_of_Guyana.svg.png', 'Gujana', 'Guyana', 'Ameryki'),
+(133, 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Colombia.svg/1280px-Flag_of_Colombia.svg.png', 'Kolumbia', 'Colombia', 'Ameryki'),
+(134, 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Flag_of_Paraguay.svg/1920px-Flag_of_Paraguay.svg.png', 'Paragwaj', 'Paraguay', 'Ameryki'),
+(135, 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Flag_of_Peru_%28state%29.svg/1280px-Flag_of_Peru_%28state%29.svg.png', 'Peru', 'Peru', 'Ameryki'),
+(136, 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Flag_of_Suriname.svg/1280px-Flag_of_Suriname.svg.png', 'Surinam', 'Suriname', 'Ameryki'),
+(137, 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Flag_of_Trinidad_and_Tobago.svg/1920px-Flag_of_Trinidad_and_Tobago.svg.png', 'Trinidad i Tobago', 'Trinidad and Tobago', 'Ameryki'),
+(138, 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flag_of_Uruguay.svg/1280px-Flag_of_Uruguay.svg.png', 'Urugwaj', 'Uruguay', 'Ameryki'),
+(139, 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Flag_of_Venezuela_%28state%29.svg/1280px-Flag_of_Venezuela_%28state%29.svg.png', 'Wenezuela', 'Venezuela', 'Ameryki'),
+(140, 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Flag_of_Aruba.svg/1280px-Flag_of_Aruba.svg.png', 'Aruba', 'Aruba', 'Ameryki'),
+(141, 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Flag_of_Bolivia.svg/1280px-Flag_of_Bolivia.svg.png', 'Boliwia', 'Bolivia', 'Ameryki'),
+(142, 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Flag_of_Algeria.svg/960px-Flag_of_Algeria.svg.png', 'Algieria', 'Algeria', 'Afryka'),
+(143, 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Flag_of_Angola.svg/960px-Flag_of_Angola.svg.png', 'Angola', 'Angola', 'Afryka'),
+(144, 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Flag_of_Benin.svg/960px-Flag_of_Benin.svg.png', 'Benin', 'Benin', 'Afryka'),
+(145, 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Flag_of_Botswana.svg/960px-Flag_of_Botswana.svg.png', 'Botswana', 'Botswana', 'Afryka'),
+(146, 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Flag_of_Burkina_Faso.svg/960px-Flag_of_Burkina_Faso.svg.png', 'Burkina Faso', 'Burkina Faso', 'Afryka'),
+(147, 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Flag_of_Burundi.svg/1280px-Flag_of_Burundi.svg.png', 'Burundi', 'Burundi', 'Afryka'),
+(148, 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Flag_of_Chad.svg/960px-Flag_of_Chad.svg.png', 'Czad', 'Chad', 'Afryka'),
+(149, 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Flag_of_the_Democratic_Republic_of_the_Congo.svg/960px-Flag_of_the_Democratic_Republic_of_the_Congo.svg.png', 'Demokratyczna Republika Konga', 'Democratic Republic of the Congo', 'Afryka'),
+(150, 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Flag_of_Djibouti.svg/960px-Flag_of_Djibouti.svg.png', 'Dżibuti', 'Djibouti', 'Afryka'),
+(151, 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flag_of_Egypt.svg/960px-Flag_of_Egypt.svg.png', 'Egipt', 'Egypt', 'Afryka'),
+(152, 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Flag_of_Eritrea.svg/1280px-Flag_of_Eritrea.svg.png', 'Erytrea', 'Eritrea', 'Afryka'),
+(153, 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Flag_of_Eswatini.svg/960px-Flag_of_Eswatini.svg.png', 'Eswatini', 'Eswatini', 'Afryka'),
+(154, 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Flag_of_Ethiopia.svg/1280px-Flag_of_Ethiopia.svg.png', 'Etiopia', 'Ethopia', 'Afryka'),
+(155, 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Flag_of_Gabon.svg/960px-Flag_of_Gabon.svg.png', 'Gabon', 'Gabon', 'Afryka'),
+(156, 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Flag_of_The_Gambia.svg/960px-Flag_of_The_Gambia.svg.png', 'Gambia', 'Gambia', 'Afryka'),
+(157, 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Flag_of_Ghana.svg/960px-Flag_of_Ghana.svg.png', 'Ghana', 'Ghana', 'Afryka'),
+(158, 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Flag_of_Guinea.svg/960px-Flag_of_Guinea.svg.png', 'Gwinea', 'Guinea', 'Aftyka'),
+(159, 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Flag_of_Guinea-Bissau.svg/1280px-Flag_of_Guinea-Bissau.svg.png', 'Gwinea Bissau', 'Guinea Bissau', 'Afryka'),
+(160, 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Flag_of_Equatorial_Guinea.svg/960px-Flag_of_Equatorial_Guinea.svg.png', 'Gwinea Równikowa', 'Equatorial Guinea', 'Afryka'),
+(161, 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Flag_of_Cameroon.svg/960px-Flag_of_Cameroon.svg.png', 'Kamerun', 'Cameroon', 'Afryka'),
+(162, 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Flag_of_Kenya.svg/960px-Flag_of_Kenya.svg.png', 'Kenia', 'Kenya', 'Afryka'),
+(163, 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Flag_of_the_Comoros.svg/1280px-Flag_of_the_Comoros.svg.png', 'Komory', 'Comoros', 'Afryka'),
+(164, 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Flag_of_the_Republic_of_the_Congo.svg/960px-Flag_of_the_Republic_of_the_Congo.svg.png', 'Kongo, Republika Konga', 'Congo, Republic of the Congo', 'Afryka'),
+(165, 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Flag_of_Lesotho.svg/960px-Flag_of_Lesotho.svg.png', 'Lesotho', 'Lesotho', 'Afryka'),
+(166, 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Flag_of_Liberia.svg/1280px-Flag_of_Liberia.svg.png', 'Liberia', 'Liberia', 'Afryka'),
+(167, 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Flag_of_Libya.svg/1280px-Flag_of_Libya.svg.png', 'Libia', 'Libya', 'Afryka'),
+(168, 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Flag_of_Madagascar.svg/960px-Flag_of_Madagascar.svg.png', 'Madagaskar', 'Madagascar', 'Afryka'),
+(169, 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Flag_of_Malawi.svg/960px-Flag_of_Malawi.svg.png', 'Malawi', 'Malawi', 'Afryka'),
+(170, 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Flag_of_Mali.svg/960px-Flag_of_Mali.svg.png', 'Mali', 'Mali', 'Afryka'),
+(171, 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Flag_of_Morocco.svg/960px-Flag_of_Morocco.svg.png', 'Maroko', 'Morocco', 'Afryka'),
+(172, 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Flag_of_Mauritania.svg/960px-Flag_of_Mauritania.svg.png', 'Mauretania', 'Mauritania', 'Afryka'),
+(173, 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Flag_of_Mauritius.svg/960px-Flag_of_Mauritius.svg.png', 'Mauritius', 'Mauritius', 'Afryka'),
+(174, 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Flag_of_Mozambique.svg/960px-Flag_of_Mozambique.svg.png', 'Mozambik', 'Mozambique', 'Afryka'),
+(175, 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Flag_of_Namibia.svg/960px-Flag_of_Namibia.svg.png', 'Namibia', 'Nambia', 'Afryka'),
+(176, 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Flag_of_Niger.svg/960px-Flag_of_Niger.svg.png', 'Niger', 'Niger', 'Afryka'),
+(177, 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Flag_of_Nigeria.svg/1280px-Flag_of_Nigeria.svg.png', 'Nigeria', 'Nigeria', 'Afryka'),
+(178, 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Flag_of_South_Africa.svg/960px-Flag_of_South_Africa.svg.png', 'Republika Połudiowej Afryki, RPA, Południowa Afryka', 'South Africa', 'Afryka'),
+(179, 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Flag_of_the_Central_African_Republic.svg/960px-Flag_of_the_Central_African_Republic.svg.png', 'Republika Środkowoafrykańska', 'Central African Republic', 'Afryka'),
+(180, 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Flag_of_Cape_Verde.svg/1280px-Flag_of_Cape_Verde.svg.png', 'Republika Zielonego Przylądka', 'Cape Verde', 'Afryka'),
+(181, 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Flag_of_Rwanda.svg/960px-Flag_of_Rwanda.svg.png', 'Rwanda', 'Rwanda', 'Afryka'),
+(182, 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Flag_of_Senegal.svg/960px-Flag_of_Senegal.svg.png', 'Senegal', 'Senegal', 'Afryka'),
+(183, 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Flag_of_Seychelles.svg/1280px-Flag_of_Seychelles.svg.png', 'Seszele', 'Seychelles', 'Afryka'),
+(184, 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Flag_of_Sierra_Leone.svg/960px-Flag_of_Sierra_Leone.svg.png', 'Sierra Leone', 'Sierra Leone', 'Afryka'),
+(185, 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Flag_of_Somalia.svg/960px-Flag_of_Somalia.svg.png', 'Somalia', 'Somalia', 'Afryka'),
+(186, 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Flag_of_Sudan.svg/1280px-Flag_of_Sudan.svg.png', 'Sudan', 'Sudan', 'Afryka'),
+(187, 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Flag_of_South_Sudan.svg/1280px-Flag_of_South_Sudan.svg.png', 'Sudan Południowy', 'South Sudan', 'Afryka'),
+(188, 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Flag_of_Tanzania.svg/960px-Flag_of_Tanzania.svg.png', 'Tanzania', 'Tanzania', 'Afryka'),
+(189, 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Flag_of_Togo.svg/1280px-Flag_of_Togo.svg.png', 'Togo', 'Togo', 'Afryka'),
+(190, 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Tunisia.svg/960px-Flag_of_Tunisia.svg.png', 'Tunezja', 'Tunisia', 'Afryka'),
+(191, 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Flag_of_Uganda.svg/960px-Flag_of_Uganda.svg.png', 'Uganda', 'Uganda', 'Afryka'),
+(192, 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flag_of_C%C3%B4te_d%27Ivoire.svg/960px-Flag_of_C%C3%B4te_d%27Ivoire.svg.png', 'Wybrzeże Kości Słoniowej', 'Ivory Coast', 'Afryka'),
+(193, 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Flag_of_S%C3%A3o_Tom%C3%A9_and_Pr%C3%ADncipe.svg/1280px-Flag_of_S%C3%A3o_Tom%C3%A9_and_Pr%C3%ADncipe.svg.png', 'Wyspy Świętego Tomasza i Książęca', 'Sao Tome and Principe', 'Afryka'),
+(194, 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Flag_of_Zambia.svg/960px-Flag_of_Zambia.svg.png', 'Zambia', 'Zambia', 'Afryka'),
+(195, 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Flag_of_Zimbabwe.svg/1280px-Flag_of_Zimbabwe.svg.png', 'Zimbabwe', 'Zimbabwe', 'Afryka'),
+(196, 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Flag_of_Australia.svg/1920px-Flag_of_Australia.svg.png', 'Australia', 'Australia', 'Oceania'),
+(197, 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Fiji.svg/1920px-Flag_of_Fiji.svg.png', 'Fidżi', 'Fiji', 'Oceania'),
+(198, 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Flag_of_Kiribati.svg/1920px-Flag_of_Kiribati.svg.png', 'Kiribati', 'Kiribati', 'Oceania'),
+(199, 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Flag_of_the_Federated_States_of_Micronesia.svg/1920px-Flag_of_the_Federated_States_of_Micronesia.svg.png', 'Mikronezja', 'Micronesia, Federated States of Micronesia', 'Oceania'),
+(200, 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Flag_of_Nauru.svg/1920px-Flag_of_Nauru.svg.png', 'Nauru', 'Nauru', 'Oceania'),
+(201, 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Flag_of_New_Zealand.svg/1920px-Flag_of_New_Zealand.svg.png', 'Nowa Zelandia', 'New Zealand', 'Oceania'),
+(202, 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Flag_of_Palau.svg/1280px-Flag_of_Palau.svg.png', 'Palau', 'Palau', 'Oceania'),
+(203, 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Flag_of_Papua_New_Guinea.svg/1280px-Flag_of_Papua_New_Guinea.svg.png', 'Papua-Nowa Gwinea, Papua Nowa Gwinea', 'Papaua New Guinea', 'Oceania'),
+(204, 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Flag_of_Samoa.svg/1920px-Flag_of_Samoa.svg.png', 'Samoa', 'Samoa', 'Oceania'),
+(205, 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Tonga.svg/1920px-Flag_of_Tonga.svg.png', 'Tonga', 'Tonga', 'Oceania'),
+(206, 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Flag_of_Tuvalu.svg/1920px-Flag_of_Tuvalu.svg.png', 'Tuvalu', 'Tuvalu', 'Oceania'),
+(207, 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Flag_of_Vanuatu_%28official%29.svg/1280px-Flag_of_Vanuatu_%28official%29.svg.png', 'Vanuatu', 'Vanuatu', 'Oceania'),
+(208, 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Flag_of_the_Marshall_Islands.svg/1920px-Flag_of_the_Marshall_Islands.svg.png', 'Wyspy Marshalla', 'Marshall Islands', 'Oceania'),
+(209, 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Flag_of_the_Solomon_Islands.svg/1920px-Flag_of_the_Solomon_Islands.svg.png', 'Wyspy Salomona', 'Solomon Islands', 'Oceania'),
+(210, 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Flag_of_Guam.svg/1920px-Flag_of_Guam.svg.png', 'Guam', 'Guam', 'Oceania'),
+(211, 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Flag_of_French_Polynesia.svg/1280px-Flag_of_French_Polynesia.svg.png', 'Polinezja Francuska', 'French Polynesia', 'Oceania'),
+(212, 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Flag_of_Hawaii.svg/1920px-Flag_of_Hawaii.svg.png', 'Hawaje', 'Hawaii', 'Oceania'),
+(213, 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Flag_of_the_Northern_Mariana_Islands.svg/1920px-Flag_of_the_Northern_Mariana_Islands.svg.png', 'Mariany Północne', 'Northern Mariana Islands', 'Oceania'),
+(214, 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Flag_of_Norfolk_Island.svg/1920px-Flag_of_Norfolk_Island.svg.png', 'Norfolk', 'Norfolk Island', 'Oceania'),
+(215, 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Flag_of_FLNKS.svg/1920px-Flag_of_FLNKS.svg.png', 'Nowa Kaledonia', 'New Caledonia', 'Oceania'),
+(216, 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Flag_of_Niue.svg/1920px-Flag_of_Niue.svg.png', 'Niue', 'Niue', 'Oceania'),
+(217, 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Flag_of_the_Pitcairn_Islands.svg/1920px-Flag_of_the_Pitcairn_Islands.svg.png', 'Pitcairn', 'Pitcairn Islands', 'Oceania'),
+(218, 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Flag_of_Tokelau.svg/1920px-Flag_of_Tokelau.svg.png', 'Tokelau', 'Tokelau', 'Oceania'),
+(219, 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Flag_of_American_Samoa.svg/1920px-Flag_of_American_Samoa.svg.png', 'Samoa Amerykańskie', 'American Samoa', 'Oceania');
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `scores`
+--
+
+CREATE TABLE `scores` (
+  `id` bigint(20) NOT NULL,
+  `date` datetime(6) DEFAULT NULL,
+  `game_mode` varchar(255) DEFAULT NULL,
+  `points` int(11) NOT NULL,
+  `user_id` bigint(20) DEFAULT NULL,
+  `max_points` int(11) DEFAULT NULL,
+  `region` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `scores`
+--
+
+INSERT INTO `scores` (`id`, `date`, `game_mode`, `points`, `user_id`, `max_points`, `region`) VALUES
+(6, '2026-02-17 19:51:28.000000', '1', 4, 1, 49, 'Europa'),
+(7, '2026-02-17 19:52:44.000000', '1', 7, 1, 49, 'Europa'),
+(8, '2026-02-17 19:54:44.000000', '2', 8, 1, 49, 'Europa'),
+(9, '2026-02-17 19:58:22.000000', '1', 8, 1, 49, 'Europa'),
+(10, '2026-02-17 20:34:19.000000', '1', 4, 1, 49, 'Europa'),
+(11, '2026-02-17 20:37:35.000000', '1', 2, 1, 49, 'World'),
+(12, '2026-02-17 20:42:28.000000', '3', 1, 1, 49, 'World'),
+(13, '2026-02-18 15:42:15.000000', '1', 0, 1, 49, 'Europa'),
+(14, '2026-02-18 15:47:21.000000', '2', 0, 1, 49, 'Europa'),
+(15, '2026-02-18 15:48:26.000000', '3', 0, 1, 49, 'World'),
+(16, '2026-02-18 15:53:36.000000', '1', 1, 1, 49, 'Europa'),
+(17, '2026-02-18 17:46:08.000000', '1', 7, 1, 49, 'Azja'),
+(18, '2026-02-18 17:46:46.000000', '1', 2, 1, 98, 'World'),
+(19, '2026-02-18 19:51:40.000000', '1', 7, 1, 219, 'World'),
+(20, '2026-02-18 19:54:54.000000', '1', 2, 1, 53, 'Afryka'),
+(21, '2026-02-20 13:28:31.000000', '3', 5, 1, 219, 'Europa'),
+(22, '2026-02-20 13:35:46.000000', '3', 2, 1, 0, 'Europa'),
+(23, '2026-02-20 13:40:37.000000', '3', 5, 1, 49, 'Europa'),
+(24, '2026-02-20 13:41:37.000000', '3', 1, 1, 53, 'Afryka'),
+(25, '2026-03-24 19:00:48.000000', '1', 4, 1, 49, 'Europa'),
+(26, '2026-03-24 19:04:11.000000', '1', 1, 1, 49, 'Europa'),
+(27, '2026-03-24 20:17:27.000000', '1', 0, 1, 43, 'Ameryki'),
+(28, '2026-03-24 20:17:37.000000', '1', 3, 1, 49, 'Europa');
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `users`
+--
+
+CREATE TABLE `users` (
+  `id` bigint(20) NOT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `username` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `password`, `username`) VALUES
+(1, 'haslo123', 'Benio');
+
+--
+-- Indeksy dla zrzutów tabel
+--
+
+--
+-- Indeksy dla tabeli `countries`
+--
+ALTER TABLE `countries`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeksy dla tabeli `scores`
+--
+ALTER TABLE `scores`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `FKtkgoiahryd4yntgywbqyyw8o8` (`user_id`);
+
+--
+-- Indeksy dla tabeli `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `UKr43af9ap4edm43mmtq01oddj6` (`username`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `countries`
+--
+ALTER TABLE `countries`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=220;
+
+--
+-- AUTO_INCREMENT for table `scores`
+--
+ALTER TABLE `scores`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `scores`
+--
+ALTER TABLE `scores`
+  ADD CONSTRAINT `FKtkgoiahryd4yntgywbqyyw8o8` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
