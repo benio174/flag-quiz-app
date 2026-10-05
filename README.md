@@ -33,12 +33,16 @@ No local installation of Java, Maven, or Node.js is required when running via Do
 ## Getting Started
 
 ### 1. Clone the repository
-git clone https://github.com/benio174/flag_app.git
+```bash
+git clone [https://github.com/benio174/flag_app.git](https://github.com/benio174/flag_app.git)
 cd flag_app
+```
 
 ### 2. Run with Docker Compose
 Build and launch both the frontend and backend services:
+```bash
 docker compose up --build
+```
 
 Once initialized, the services will be accessible at:
 - Frontend: http://localhost:5173
@@ -46,10 +50,15 @@ Once initialized, the services will be accessible at:
 
 ### 3. Stopping the Application
 To stop all running containers:
+```bash
 docker compose down
+```
+or Ctrl + C in terminal running project.
 
 To stop containers and wipe the persistent database volume:
+```bash
 docker compose down -v
+```
 
 ---
 
@@ -66,13 +75,17 @@ The application utilizes an embedded H2 database configured in file mode.
 If you prefer running services directly on your host machine:
 
 ### Backend
+```bash
 cd backend/app
 ./mvnw clean spring-boot:run
+```
 (On Windows: .\mvnw.cmd spring-boot:run)
 
 ### Frontend
 cd frontend/my-react-app
+```bash
 npm install
 npm run dev
+```
 
 Access the development server at http://localhost:5173.
