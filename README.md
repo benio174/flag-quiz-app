@@ -1,32 +1,78 @@
-# 🏳️ Quiz o Flagach Świata (Full-Stack App)
+# Flag Quiz Application
 
-Interaktywna aplikacja do nauki flag państw z całego świata, podzielona na regiony, z systemem logowania i tabelą najlepszych wyników.
+A full-stack web application designed for learning world flags and testing geography knowledge through an interactive quiz. The project is fully containerized and uses an embedded database, requiring no external database services to run.
 
-## 🚀 Technologie
-* **Frontend:** React
-* **Backend:** Java Spring Boot
-* **Baza danych:** MySQL (XAMPP)
-* **Stylizacja:** CSS
+---
 
-## 📋 Funkcje
-* Tryby gry: Wybór nazwy państwa, wybór flagi państwa i wpisywanie nazwy z klawiatury.
-* Filtrowanie według kontynentów (Europa, Azja, Afryka, Ameryki, Oceania, Świat).
-* System użytkowników: Rejestracja i logowanie.
-* Profil gracza: Historia gier i Top 10 najlepszych wyników dla każdego regionu.
-* Wielojęzyczność: Obsługa języka polskiego i angielskiego.
+## Tech Stack
 
-## 🛠️ Jak uruchomić projekt lokalnie?
+### Frontend
+- React
+- Vite
+- Axios
+- Nginx (production container serving)
 
-### 1. Baza danych
-1. Uruchom MySQL w panelu XAMPP.
-2. Zaimportuj plik znajdujący się w `/database/flags.sql` do swojego phpMyAdmin.
+### Backend
+- Java 17
+- Spring Boot
+- Spring Data JPA / Hibernate
+- H2 Database (file-based embedded storage)
 
-### 2. Backend (Java)
-1. Wejdź do folderu `/backend`.
-2. Upewnij się, że masz zainstalowane JDK 17 lub nowsze.
-3. Uruchom aplikację przez VS Code (Spring Boot Dashboard) lub komendą `./mvnw spring-boot:run`.
+---
 
-### 3. Frontend (React)
-1. Wejdź do folderu `/frontend`.
-2. Wykonaj `npm install`, aby pobrać biblioteki.
-3. Uruchom aplikację komendą `npm run dev`.
+## Prerequisites
+
+To run this application using the recommended method, ensure you have installed:
+- Docker
+- Docker Compose
+
+No local installation of Java, Maven, or Node.js is required when running via Docker.
+
+---
+
+## Getting Started
+
+### 1. Clone the repository
+git clone https://github.com/benio174/flag_app.git
+cd flag_app
+
+### 2. Run with Docker Compose
+Build and launch both the frontend and backend services:
+docker compose up --build
+
+Once initialized, the services will be accessible at:
+- Frontend: http://localhost:5173
+- Backend API: http://localhost:8081
+
+### 3. Stopping the Application
+To stop all running containers:
+docker compose down
+
+To stop containers and wipe the persistent database volume:
+docker compose down -v
+
+---
+
+## Database Configuration
+
+The application utilizes an embedded H2 database configured in file mode. 
+- Seed data (countries, flags, and names) is automatically loaded upon initialization from data.sql using idempotent MERGE INTO operations.
+- User accounts and quiz scores are persisted in an internal volume managed by Docker (h2_data), ensuring data persists across container restarts.
+
+---
+
+## Local Development (Without Docker)
+
+If you prefer running services directly on your host machine:
+
+### Backend
+cd backend/app
+./mvnw clean spring-boot:run
+(On Windows: .\mvnw.cmd spring-boot:run)
+
+### Frontend
+cd frontend/my-react-app
+npm install
+npm run dev
+
+Access the development server at http://localhost:5173.
